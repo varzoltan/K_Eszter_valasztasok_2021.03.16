@@ -18,12 +18,13 @@ namespace K_Eszter_valasztasok_2021._03._16
         }
         static void Main(string[] args)
         {
+            const int ossz_valaszto = 12345;
             //1.lépés
             Adat[] adatok = new Adat[100];//Példányosítom a struktúrát!
 
             //2.lépés: Beolvasás
             //1.feladat
-            StreamReader olvas = new StreamReader(@"C:\Users\Rendszergazda\Desktop\K_eszter_prog_erettsegi\2013-majus\szavazatok.txt");
+            StreamReader olvas = new StreamReader(@"E:\OneDrive - Kisvárdai SZC Móricz Zsigmond Szakgimnáziuma és Szakközépiskolája\Oktatas\Programozas\Jakab_Acs_Eszter\Erettsegi_feladatok\2013-majus\szavazatok.txt");
             int n  =  0;
             while(!olvas.EndOfStream)
             {
@@ -56,6 +57,24 @@ namespace K_Eszter_valasztasok_2021._03._16
             if (volt)
             {
                 Console.WriteLine("3.feladat\nIlyen nevű képviselőjelölt nem szerepel a nyilvántartásban!");
+            }
+
+            //4.feladat
+            int szavazat = 0;
+            for (int i = 0;i<n;i++)
+            {
+                szavazat += adatok[i].szavazatszam;
+            }
+            Console.WriteLine($"A választáson {szavazat} állampolgár, a jogosultak {((double)szavazat*100/ossz_valaszto).ToString("0.00")} % -a vett részt.");
+
+            //5.feladat
+            string[] partok = {"GYEP","ZEP","HEP","TISZ","-"};
+            for (int i = 0;i<partok.Length;i++)
+            {
+                for (int j = 0;j<n;j++)
+                {
+
+                }
             }
             Console.ReadKey();
         }
