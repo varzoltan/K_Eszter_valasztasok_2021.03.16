@@ -60,6 +60,7 @@ namespace K_Eszter_valasztasok_2021._03._16
             }
 
             //4.feladat
+            Console.WriteLine("4.feladat");
             int szavazat = 0;
             for (int i = 0;i<n;i++)
             {
@@ -69,11 +70,35 @@ namespace K_Eszter_valasztasok_2021._03._16
 
             //5.feladat
             string[] partok = {"GYEP","ZEP","HEP","TISZ","-"};
+            int szavazat1 = 0;
+            Console.WriteLine("5.feladat");
             for (int i = 0;i<partok.Length;i++)
             {
                 for (int j = 0;j<n;j++)
                 {
+                    if (partok[i] == adatok[j].part)
+                    {
+                        szavazat1 = szavazat1 + adatok[j].szavazatszam;
+                    }
+                }
+                if (partok[i] == "-")
+                {
+                    Console.WriteLine($"Független jelöltek={((double) szavazat1*100/ossz_valaszto).ToString("0.00")}");
+                }
+                else
+                {
+                    Console.WriteLine($"{partok[i]}={((double) szavazat1*100/ossz_valaszto).ToString("0.00")}");
+                }      
+                szavazat1 = 0;
+            }
 
+            //6.feladat
+            int max = -1;
+            for (int i = 0;i<n;i++)
+            {
+                if (max<adatok[i].szavazatszam)
+                {
+                    max = adatok[i].szavazatszam
                 }
             }
             Console.ReadKey();
