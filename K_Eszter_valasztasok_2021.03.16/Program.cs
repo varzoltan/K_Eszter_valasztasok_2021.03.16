@@ -93,14 +93,53 @@ namespace K_Eszter_valasztasok_2021._03._16
             }
 
             //6.feladat
+            Console.WriteLine("6.feladat");
             int max = -1;
             for (int i = 0;i<n;i++)
             {
                 if (max<adatok[i].szavazatszam)
                 {
-                    max = adatok[i].szavazatszam
+                    max = adatok[i].szavazatszam;
                 }
             }
+            for(int i=0;i<n;i++)
+            {
+                if (max==adatok[i].szavazatszam)
+                {
+                    if (adatok[i].part == "-")
+                    {
+                        Console.WriteLine($"A jelölt neve: {adatok[i].nev} és pártja: Független");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"A jelölt neve: {adatok[i].nev} és pártja: {adatok[i].part}");
+                    } 
+                    
+                }
+            }
+
+            //7.feladat
+            int max1 = 0;
+            int index = -1;
+            Console.WriteLine("7.feladat");
+            for (int i = 1;i<=8;i++)
+            {
+               
+                for (int j=0; j<n;j++)
+                {
+                    if (adatok[j].v_kerulet==i)
+                    {
+                        if (max1<adatok[j].szavazatszam)
+                        {
+                            max1 = adatok[j].szavazatszam;
+                            index = j;
+                        }
+                    }
+                }
+                Console.WriteLine($"A választókerület: {i} a jelölt neve: {adatok[index].nev} és pártja: {adatok[index].part}");
+                max1 = 0;
+            }
+            
             Console.ReadKey();
         }
     }
