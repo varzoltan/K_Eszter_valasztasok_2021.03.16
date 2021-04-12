@@ -122,6 +122,7 @@ namespace K_Eszter_valasztasok_2021._03._16
             int max1 = 0;
             int index = -1;
             Console.WriteLine("7.feladat");
+            StreamWriter ir = new StreamWriter(@"E:\OneDrive - Kisvárdai SZC Móricz Zsigmond Szakgimnáziuma és Szakközépiskolája\Oktatas\Programozas\Jakab_Acs_Eszter\Erettsegi_feladatok\2013-majus\kepviselok.txt");
             for (int i = 1;i<=8;i++)
             {
                
@@ -136,10 +137,18 @@ namespace K_Eszter_valasztasok_2021._03._16
                         }
                     }
                 }
-                Console.WriteLine($"A választókerület: {i} a jelölt neve: {adatok[index].nev} és pártja: {adatok[index].part}");
+                if (adatok[index].part == "-")
+                {
+                    ir.WriteLine($"A választókerület: {i} a jelölt neve: {adatok[index].nev} és pártja: független");
+                }
+                else
+                {
+                    ir.WriteLine($"A választókerület: {i} a jelölt neve: {adatok[index].nev} és pártja: {adatok[index].part}");
+                }              
                 max1 = 0;
             }
-            
+            ir.Close();
+            Console.WriteLine("A feladat kiírása kész!");
             Console.ReadKey();
         }
     }
